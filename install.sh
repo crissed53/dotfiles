@@ -3,7 +3,7 @@
 set -eu
 
 if [ $# -ne 1 ]; then
-  DOTFILE_DIR=$HOME/.dansuh
+  DOTFILE_DIR=$HOME/.crissed
 else
   DOTFILE_DIR="$1"
 fi
@@ -50,9 +50,9 @@ if ! command -v zsh &> /dev/null ; then
     mkdir "$ZSH_BUILD"
   fi
 
-  wget -c http://www.zsh.org/pub/zsh-5.5.1.tar.gz
-  tar -xzvf zsh-5.5.1.tar.gz
-  pushd zsh-5.5.1
+  curl -L https://sourceforge.net/projects/zsh/files/zsh/5.7.1/zsh-5.7.1.tar.xz/download > zsh-5.7.1.tar.xz
+  tar -xzvf zsh-5.7.1.tar.xz
+  pushd zsh-5.7.1
   ./configure --prefix="$ZSH_BUILD" --exec-prefix="$ZSH_BUILD" --enable-cap --enable-pcre
   make -j5
   make check
@@ -133,9 +133,9 @@ prepend_zshrc "export ZSH_PATH=$ZSH_PATH"
 prepend_zshrc "# Generated Environment Variables and PATHs - inherits existing PATH."
 
 # add init function
-INIT_FUNCTION="ds_init() { ZDOTDIR=$DOTFILE_DIR $ZSH_PATH/zsh ; }"
+INIT_FUNCTION="js_init() { ZDOTDIR=$DOTFILE_DIR $ZSH_PATH/zsh ; }"
 echo "$INIT_FUNCTION" >> "$HOME/.bashrc"
-echo "ds_init" >> "$HOME/.bashrc"
+echo "js_init" >> "$HOME/.bashrc"
 
-echo "Type 'ds_init' to initialize with dansuh's custom settings!"
+echo "Type 'js_init' to initialize with crissed's custom settings!"
 source $HOME/.bashrc

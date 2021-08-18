@@ -24,38 +24,20 @@ set nocompatible
 filetype off
 
 call plug#begin()
-" NOTE that some of these plugins will not properly work if
-" the editor is not macvim.
-" Use 'brew install macvim --with-override-system-vim' command
-" to properly install macvim on OSX.
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }  " fuzzy finder
+
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
 
 " rainbow brackets
 Plug 'luochen1990/rainbow'
 Plug 'dense-analysis/ale'  " asynchronous linter - vim8 required - use either syntastic or ale not both
 
-" Plug 'tpope/vim-surround'  " surround functions
-" Plug 'ntpeters/vim-better-whitespace'  " whitespace helper
-" Plug 'mileszs/ack.vim'  " use silver searcher
-" Plug 'itchyny/lightline.vim'  " status line plugin
-" Plug 'mgee/lightline-bufferline'  " show buffers to tabline
-" Plug 'maximbaz/lightline-ale'  " lightline + ALE
-
-" language syntax highlighting
-Plug 'dansuh17/python-syntax'  " better python syntax highlighting
-
-" colorschemes - uncomment to use
 Plug 'romainl/Apprentice'  " apprentice
-" Plug 'altercation/vim-colors-solarized'  " solarized
-" Plug 'kaicataldo/material.vim'  " material
-" Plug 'nightsense/vimspectr'
-" Plug 'phanviet/vim-monokai-pro'  " monokai_pro
-" Plug 'jnurmine/Zenburn'  " zenburn
-" Plug 'dracula/vim', { 'as': 'dracula' }  " dracula
-" Plug 'arcticicestudio/nord-vim'  " nord
 
-" All of your plugins must be added before the following line
 call plug#end()
 filetype plugin on
 filetype indent on
