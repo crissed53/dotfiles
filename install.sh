@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -exu
 
 if [ $# -ne 1 ]; then
   DOTFILE_DIR=$HOME/.crissed
